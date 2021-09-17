@@ -61,5 +61,6 @@ public class First {
         //task 9
         float kk = 10f;
         System.out.println(kk/0);
+
     }
 }
