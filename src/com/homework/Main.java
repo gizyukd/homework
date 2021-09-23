@@ -1,5 +1,9 @@
 package com.homework;
 
+import fifth.CreateStuffService;
+import fifth.Director;
+import fifth.Employee;
+import fifth.Worker;
 import fourth.constructTask.ConstructorClass;
 import fourth.difPackOne.TheSameName;
 import fourth.overload.Overload;
@@ -40,6 +44,21 @@ public class Main {
 
 //        TheSameName theSameNameOne = new TheSameName();
 //        fourth.difPackTwo.TheSameName theSameNameTwo = new fourth.difPackTwo.TheSameName();
+
+        CreateStuffService createStuffService = new CreateStuffService();
+        Employee worker1 = new Worker(1, "dima", "gizyuk");
+        Employee worker2 = new Worker(2, "alina", "lestrewa");
+        Employee worker3 = new Worker(3, "diana", "nebylitsa");
+        Director director = new Director(5, "Директор", "Красный");
+        System.out.println(worker1.toString() + "\n" + worker2.toString() + "\n" + worker3.toString() + "\n" + director.toString() );
+        director.addWorker(worker1);
+        director.addWorker(worker2);
+        director.printDirInfoWithSubjects();
+
+        Director director2 = new Director(4, "Монополист", "Из 90-х");
+        director2.addWorker(worker3);
+        director.addWorker(director2);
+
 
     }
 
