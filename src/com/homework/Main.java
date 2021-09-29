@@ -47,6 +47,7 @@ public class Main {
         ((Director)director).addWorker(worker1);
         ((Director)director).addWorker(worker2);
 
+
         Employee director2 = new Director(4, "Монополист", "Из 90-х");
         ((Director)director2).addWorker(worker3);
         ((Director)director).addWorker(director2);
