@@ -1,8 +1,10 @@
 package fifth;
 
+import sixth.SearchEmployeeInterface;
+
 import java.util.Arrays;
 
-public class Director extends Employee{
+public class Director extends Employee implements SearchEmployeeInterface {
 
     Employee [] employees;
 
@@ -41,7 +43,7 @@ public class Director extends Employee{
     }
 
     public void printDirInfoWithSubjects(){
-        System.out.println(super.toString()); // можно ли вызвать реализацию метода предка, переопределенного потомком
+        System.out.println(super.toString());
         for (int i = 0; i<this.employees.length;i++){
             System.out.println(employees[i].toString());
         }
@@ -54,4 +56,34 @@ public class Director extends Employee{
                 '}';
     }
 
+    @Override
+    public void searchEmployee(String name) {
+        for(Employee employee : this.employees){
+            if(employee.getName().equals(name)){
+                System.out.println("Cотрудник с таким именем есть в подчинении");
+                return;
+            }
+        }
+        System.out.println("Сотрудник в подчинении не найден");
+        return;
+    }
+
+    @Override
+    public boolean deepSearchEmployee(String name) {
+        for(Employee employee : this.employees){
+            if(employee.getName().equals(name)){
+                System.out.println("Cотрудник с таким именем есть в подчинении у директора " + this.getName());
+                return true;
+            }
+            if(employee instanceof Director){
+                if(((Director) employee).deepSearchEmployee(name)){
+                    return true;
+                }
+            }
+        }
+        System.out.println("Сотрудник в подчинении не найден");
+        return false;
+    }
+
 }
+

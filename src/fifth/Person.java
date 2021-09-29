@@ -17,4 +17,8 @@ public class Person { // нужно ли делать его abstract
                 ", surname='" + surname + '\'' +
                 '}';
     }
+
+    public String getName() {
+        return name;
+    }
 }

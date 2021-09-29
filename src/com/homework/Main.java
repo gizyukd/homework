@@ -54,6 +54,9 @@ public class Main {
         System.out.println(director);
         System.out.println(director2);
 
+        ((Director) director).searchEmployee("dima");
+        ((Director) director).deepSearchEmployee("diana");
+
 
     }
 
