@@ -1,5 +1,7 @@
 package fifth;
 
+import java.util.Arrays;
+
 public class Worker extends Employee{
     public Worker(double exp, String name, String surname) {
         super(exp, name, surname);
@@ -14,5 +16,9 @@ public class Worker extends Employee{
     @Override
     public void setPosition() {
 
+    }
+
+    public String toString() {
+        return super.toString() + this.getPosition();
     }
 }

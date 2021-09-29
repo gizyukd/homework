@@ -21,15 +21,23 @@ public class Director extends Employee{
     }
 
     public void addWorker(Employee employee){
-        //int numberOfEmployees = employees.length;
-        Arrays.copyOf(employees,(employees.length + 1));
-        employees[employees.length - 1] = employee;
-
+        if (employees == null){
+            employees = new Employee[] {employee};
+        }
+        else{
+            employees = Arrays.copyOf(employees,(employees.length + 1));
+            employees[employees.length - 1] = employee;
+        }
     }
 
     @Override
     public double getSalary() {
-        return 1000 * (1 + 0.1 * employees.length) * getPosition().getRate();
+        if (employees == null){
+            return super.getSalary();
+        }
+        else{
+            return 1000 * (1 + 0.1 * employees.length) * getPosition().getRate();
+        }
     }
 
     public void printDirInfoWithSubjects(){
@@ -40,16 +48,10 @@ public class Director extends Employee{
     }
 
     @Override
-    public String toString() { // как вернуть строку со всеми работниками
-        return super.toString() + "\n" + returnEmployees(employees);
+    public String toString() {
+        return super.toString() + this.getPosition() + ": " + "Director{" +
+                "employees=" + Arrays.toString(employees) +
+                '}';
     }
 
-    public String returnEmployees(Employee [] employees){ //  нормальный ли вариант записывать возвращаемую стрингу для работника из метода toString?
-        int length = employees.length;
-        while (length!=0){
-
-            length--;
-        }
-        return null;// пока не знаю что отдавать
-    }
 }
