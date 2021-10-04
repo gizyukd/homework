@@ -1,9 +1,12 @@
 package com.homework;
 
+import eights.Memory;
+import eights.MemoryService;
 import fifth.Director;
 import fifth.Employee;
 import fifth.Worker;
 import fourth.user.User;
+import sevens.UserService;
 
 import java.util.*;
 
@@ -59,27 +62,45 @@ public class Main {
 //
 //        ((Director) director).searchEmployee("dima");
 //        ((Director) director).deepSearchEmployee("diana");
-// _______________________________________________________
-        User user1 = new User(10, "Dima", "Gizuyk", true);
-        User user2 = new User(20, "Hloya", "Tuple", false);
-        User user3 = new User(10, "Elza", "Grinva", false);
-        User user4 = new User(30, "Troy", "Baker", true);
-        User user5 = new User(10, "Diana", "Rex", true);
+// homework 7_______________________________________________________
+//        User user1 = new User(10, "Dima", "Gizuyk", true);
+//        User user2 = new User(20, "Hloya", "Tuple", false);
+//        User user3 = new User(10, "Elza", "Grinva", false);
+//        User user4 = new User(30, "Troy", "Baker", true);
+//        User user5 = new User(10, "Diana", "Rex", true);
+//
+//        List<User> list = new ArrayList<>();
+//        Set<User> set = new TreeSet<>();
+//        UserService userService = new UserService();
+//        list.add(user1);
+//        list.add(user2);
+//        list.add(user3);
+//        list.add(user4);
+//        list.add(user5);
+//        set.add(user1);
+//        set.add(user2);
+//        set.add(user3);
+//        set.add(user4);
+//        set.add(user5);
+//        System.out.println(list);
+//        System.out.println(set);
+//        userService.findUserByName(list, "Troy");
+//        userService.findUserByName(set, "Troy");
+//        System.out.println(userService.getColByMale(list, true));
+//        System.out.println(userService.getColByMale(set, false));
+//        System.out.println(userService.sortCol(list));
+//        System.out.println(userService.sortCol(set));
+        //_______________________________________________________________________
+        Memory memory = new Memory();
+        MemoryService memoryService = new MemoryService();
+        memory.setQueue((Queue<String>) memoryService.add(memory.getQueue()));
+        memory.setQueue((Queue<String>) memoryService.getAndRemove(memory.getQueue()));
 
-        List<User> list = new ArrayList<>();
-        Set<User> set = new TreeSet<>();
-        list.add(user1);
-        list.add(user2);
-        list.add(user3);
-        list.add(user4);
-        list.add(user5);
-        set.add(user1);
-        set.add(user2);
-        set.add(user3);
-        set.add(user4);
-        set.add(user5);
-        System.out.println(list);
-        System.out.println(set);
+
+
+
+
+
 
 
 
